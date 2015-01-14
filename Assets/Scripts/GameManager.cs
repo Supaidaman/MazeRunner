@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour {
     public Maze mazePrefab;
 
     private Maze mazeInstance;
-
+    //teste de branch
     private void BeginGame()
     {
         mazeInstance = Instantiate(mazePrefab) as Maze;
