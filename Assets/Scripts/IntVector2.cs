@@ -3,7 +3,7 @@ public struct IntVector2
 {
 
     public int x, z;
-
+    //outro teste
     public IntVector2(int x, int z)
     {
         this.x = x;
