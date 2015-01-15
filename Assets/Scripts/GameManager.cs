@@ -3,34 +3,28 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour {
 
-    public Maze mazePrefab;
+	public Maze mazePrefab;
 
-    private Maze mazeInstance;
-    //teste de branch
-    private void BeginGame()
-    {
-        mazeInstance = Instantiate(mazePrefab) as Maze;
-        StartCoroutine(mazeInstance.Generate());
-    }
+	private Maze mazeInstance;
 
-    private void RestartGame()
-    {
-        StopAllCoroutines();
-        Destroy(mazeInstance.gameObject);
-        BeginGame();
-    }
+	private void Start () {
+		BeginGame();
+	}
+	
+	private void Update () {
+		if (Input.GetKeyDown(KeyCode.Space)) {
+			RestartGame();
+		}
+	}
 
-    private void Start()
-    {
-        BeginGame();
-    }
+	private void BeginGame () {
+		mazeInstance = Instantiate(mazePrefab) as Maze;
+		StartCoroutine(mazeInstance.Generate());
+	}
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            RestartGame();
-        }
-    }
-
+	private void RestartGame () {
+		StopAllCoroutines();
+		Destroy(mazeInstance.gameObject);
+		BeginGame();
+	}
 }
